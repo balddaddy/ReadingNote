@@ -1,7 +1,7 @@
 # 2018
 
-##《Practices of an Agile Developer: Working in the Real World》
-###态度决定一切
+## 《Practices of an Agile Developer: Working in the Real World》
+### 态度决定一切
 做事的原则：
 ```
 出了问题，最高有限级是解决问题，而不是寻找罪魁祸首；遇到问题首先要问“为了解决或缓解这个问题，我能够做什么”
