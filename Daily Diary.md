@@ -70,45 +70,45 @@
 2. 部门员工的工作任务统一下达，不能让客户一个电话打给具体员工来分配任务；
 3. 硬件的项目流程：需求分析--方案设计--产品开发--测试---联调，前两步要开会讨论；硬件任何改动要做svn的版本管理；硬件的改动要出具版本改动说明书，和硬件程序一起提交并在群里发布一下；硬件改动之后要做一下测试，或者给出测试用例让软件协助测试在发布；
 
-# ======美丽的分割线=======
-# ======Pretty Block-line======
+# ==美丽的分割线==
+# ==Pretty Block-line==
 # ==就这么爱分割，你打我呀==
-# ======Hit me if you can======
-# ======美丽的分割线=======
-# ======Pretty Block-line======
+# ==Hit me if you can==
+# ==美丽的分割线==
+# ==Pretty Block-line==
 # ==就这么爱分割，你打我呀==
-# ======Hit me if you can======
-# ======美丽的分割线=======
-# ======Pretty Block-line======
+# ==Hit me if you can==
+# ==美丽的分割线==
+# ==Pretty Block-line==
 # ==就这么爱分割，你打我呀==
-# ======Hit me if you can======
-# ======美丽的分割线=======
-# ======Pretty Block-line======
+# ==Hit me if you can==
+# ==美丽的分割线==
+# ==Pretty Block-line==
 # ==就这么爱分割，你打我呀==
-# ======Hit me if you can======
-# ======美丽的分割线=======
-# ======Pretty Block-line======
+# ==Hit me if you can==
+# ==美丽的分割线==
+# ==Pretty Block-line==
 # ==就这么爱分割，你打我呀==
-# ======Hit me if you can======
-# ======美丽的分割线=======
-# ======Pretty Block-line======
+# ==Hit me if you can==
+# ==美丽的分割线==
+# ==Pretty Block-line==
 # ==就这么爱分割，你打我呀==
-# ======Hit me if you can======
-# ======美丽的分割线=======
-# ======Pretty Block-line======
+# ==Hit me if you can==
+# ==美丽的分割线==
+# ==Pretty Block-line==
 # ==就这么爱分割，你打我呀==
-# ======Hit me if you can======
-# ======美丽的分割线=======
-# ======Pretty Block-line======
+# ==Hit me if you can==
+# ==美丽的分割线==
+# ==Pretty Block-line==
 # ==就这么爱分割，你打我呀==
-# ======Hit me if you can======
-# ======美丽的分割线=======
-# ======Pretty Block-line======
+# ==Hit me if you can==
+# ==美丽的分割线==
+# ==Pretty Block-line==
 # ==就这么爱分割，你打我呀==
-# ======Hit me if you can======
-# ======美丽的分割线=======
-# ======Pretty Block-line======
+# ==Hit me if you can==
+# ==美丽的分割线==
+# ==Pretty Block-line==
 # ==就这么爱分割，你打我呀==
-# ======Hit me if you can======
+# ==Hit me if you can==
 
 # 2018.11.17
