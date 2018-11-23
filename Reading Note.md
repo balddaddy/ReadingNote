@@ -853,7 +853,7 @@ makefile的环境变量“MAKECMDGOALS”中会存放终极目标列表，如果
 - **TAGS**
   更新所有的目标，以备完整的重新编译使用。
 
-- **check** 和 **test** 
+- **check** 和 **test**
   用来测试makefile流程。
 
 ## AntiDrone Signal Processing Algorithm
@@ -866,3 +866,41 @@ The processing process of received signals are listed as following:
 2. Zoom transformation, the signals are summed up to resampled, the summing point lengths = Fs/fd, Fs is sampling frequency, fd is analysis band-width.
 3. Detect the ratio between spectrum peak of ZFFT result and the mean spectrum value.
 4. Calculate the pulse width of the zoom transformed signal, after it passing through low-filter.
+
+## Deep Learning from Scratch
+
+### 第二章 Perceptron 感知机
+
+感知机的数学原理可以用一个公式来表示：
+$$
+y = \{ { \array{0 & \omega_1 x_1+\omega_2 x_2 \leq \theta \\ 1 & \omega_1x_1+\omega_2 x_2 > \theta }}
+$$
+
+- 感知机是具有输入和输出的算法，给定一个输入后，将输出一个固定的值；
+- 感知机将权重和偏置设定为参数；
+- 使用感知机可以表示与门、或门、与非门等逻辑电路；
+- 异或门无法通过单层感知机来表示；
+- 使用2层感知机可以表示异或门；
+- 单层感知机只能表示线性空间，多层感知机可以表示非线性空间；
+- 多层感知机（在理论上）可是表示计算机。
+
+### 第三章 神经网络
+
+感知机到神经网络的关键在于激活函数(active funcion)。
+“朴素感知机”是指单层网络，激活函数使用了阶跃函数的模型。“多层感知机”指神经网络，使用sigmoid函数等平滑的激活函数的多层网络。
+#### 3.2 激活函数
+##### 3.2.1 sigmoid函数
+神经网络中常使用的激活函数为sigmoid函数（sigmoid function）
+$$
+h(x) = \frac{1}{1+exp(-x)}
+$$
+上述sigmoid函数为非线性函数。**神经网络必须使用非线性函数，因为使用线性函数的话，多层神经网络中的层数就没有意义了。**
+##### 3.2.7 ReLU函数
+ReLU全称为Rectified Linear Unit，其公式为
+$$
+h(x)=\{\array{x & (x>0) \\ 0 & (x\leq 0)}\}
+$$
+
+##### 3.3.3 神经网络的内积
+
+神经网络的元算可以通过矩阵相乘的方式来表示。
