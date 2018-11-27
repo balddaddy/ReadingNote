@@ -219,9 +219,9 @@ vpath %   blish
   <command>
   ....
   ```
-  上述代码中，*targets*定义了一系列目标文件，可使用通配符，是目标的集合；
-​            *target-pattern*指明了targets的模式，也就是目标集模式；
-​		       *prereq-patterns*是目标依赖模式，它对target-pattern形成模式再进行一次依赖目标的定义。
+  上述代码中，*targets* 定义了一系列目标文件，可使用通配符，是目标的集合；
+​            *target-pattern* 指明了targets的模式，也就是目标集模式；
+​		       *prereq-patterns* 是目标依赖模式，它对target-pattern形成模式再进行一次依赖目标的定义。
 ​     如果将<target-pattern>定义为“%.o”，意思是<target>集合中都以".o"结尾，而<prereq-patterns>定义为“%.c”，则会对<target-pattern>中形成的目标集进行二次定义，即取<target-pattern>模式中的“%”，为其加上“.c”结尾，形成新的集合。
 ​	 
   下面举一个:chestnut::
@@ -910,3 +910,9 @@ $$
 y_k = \frac{exp(a_k)}{\sum\limits_{i=1}^n exp(a_i)}
 $$
 softmax表征了输入信号$a_k$在所有输入中的概率。
+
+### 第四章神经网络的学习
+
+#### 4.1 从数据中学习
+
+根据“感知机收敛定理”，对于线性可分问题，感知机利用数据通过有线次数的自动学习是可解的，对于非线性可分问题，则不可解。
