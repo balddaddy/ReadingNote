@@ -76,14 +76,14 @@ namespace
 
 * Class中函数参数使用Class成员变量为默认值，应将该成员变量定义为静态成员变量。
 
-> 例子： 
+> 例子：
 >
 > ```
 > class CClassName {
 > 	private:
 > 		static type_def m_memberPara;
 > 	public:
-> 		void m_funFuncName(type_def para = m_memberPara); 
+> 		void m_funFuncName(type_def para = m_memberPara);
 > };
 > ```
 
@@ -95,8 +95,8 @@ namespace
 ### CString to char[]
 
 ```
-CString str = _T("hello"); 
-char ch[20]; 
+CString str = _T("hello");
+char ch[20];
 int n = str.GetLength();
 memcpy(ch,str.GetBuffer(),str.GetLength()*2); // 这里str长度*2是因为copy时每个字母中间会插入0
 ```
@@ -104,8 +104,8 @@ memcpy(ch,str.GetBuffer(),str.GetLength()*2); // 这里str长度*2是因为copy�
 > 或者
 
 ```
-char *ch; 
-CString str=_T("hello"); 
+char *ch;
+CString str=_T("hello");
 ch=(LPSTR)(LPCTSTR)str;
 ```
 
@@ -170,7 +170,7 @@ vector类型的整体copy可以采用两种方式
 
   > `ComboBox：CComboBox m_cbPRIType;`
   >
-  > ` m_cbPRIType.SetCurSel(0); ` 
+  > ` m_cbPRIType.SetCurSel(0); `
   >
   > `int nPRIType = m_cbPRIType.GetCurSel();`
 
@@ -290,15 +290,15 @@ static double gdSysTime = 0.0;  // 系统时间
 > ```
 > //将CString型IP地址在IPAddressCtrl中显示
 > char cIP[30] = "192.168.0.10";
-> DWORD dwIP = inet_addr(cIP); 
-> unsigned char *pIP = (unsigned char*)&dwIP; 
-> m_ipAddress.SetAddress(*pIP, *(pIP+1), *(pIP+2), *(pIP+3)); 
+> DWORD dwIP = inet_addr(cIP);
+> unsigned char *pIP = (unsigned char*)&dwIP;
+> m_ipAddress.SetAddress(*pIP, *(pIP+1), *(pIP+2), *(pIP+3));
 > //将IPAddressCtrl中的IP地址获得并转换成CString型
-> unsigned   char   *pIP; 
-> CString   strIP; 
-> DWORD   dwIP; 
-> m_ipAddr.GetAddress(dwIP); 
-> pIP   =   (unsigned   char*)&dwIP; 
+> unsigned   char   *pIP;
+> CString   strIP;
+> DWORD   dwIP;
+> m_ipAddr.GetAddress(dwIP);
+> pIP   =   (unsigned   char*)&dwIP;
 > strIP.Format( "%u.%u.%u.%u ",*(pIP+3),   *(pIP+2),   *(pIP+1),   *pIP); //C语言实现代码
 >
 > ```
@@ -348,14 +348,26 @@ static double gdSysTime = 0.0;  // 系统时间
 
 ```
 #include <windows.h>
-CString str; 
-str.Format(_T("%d %f %f\n"),nPDWNum, dTempPRF, m_dTimeStep);	
-OutputDebugString(str);	
+CString str;
+str.Format(_T("%d %f %f\n"),nPDWNum, dTempPRF, m_dTimeStep);
+OutputDebugString(str);
 ```
 
 
 
 ## QT
+
+### 如何保持GUI响应流畅
+
+通常耗时较长的操作分为计算密集型操作和IO密集型操作。而上述操作又分为可分解操作和不可分解操作；可分解操作又分为并行操作和串行操作。
+提高响应的手段有如下几种：
+1. 划分优先级：让较长的任务延后执行；
+2. 划分时间段：让较长的任务暂定一段时间后进行；在程序中添加QCoreApplication::processEvents() 方法，让系统去处理消息队里中的事件；
+3. 优化程序：减少每个任务的耗时。
+
+最后，对于数据密集型操作，推荐使用ThreadPool来管理，减少线程上下文切换的时间；而对于IO密集型操作，则自己管理一个thread来实现，而这也是我认为thread最应该使用的情景，即让CPU和外设都处于满负荷运转状态，减少总的操作时间；对于并行操作响应时间的减少，在QT中引入了Qt Concurrent的概念，采用Map/Reduce的方式，具体可以参考QT中的Concurrent Programming节。
+
+
 
 ### QT常见的Debug输出手段
 
