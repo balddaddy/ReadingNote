@@ -1,4 +1,12 @@
-#  关于企业管理的思考
+#  关于算法的思考
+
+## FPGA算法
+
+FPGA的信号处理流程如下
+
+![Signal Processing Process in FPAG](C:\Users\chang\OneDrive\Documents\ReadingNote\Fig\TYZ106-FPGA-SP.bmp)
+
+#  关于企业的思考
 
 ## 需要解决的问题
 
