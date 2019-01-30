@@ -4,7 +4,7 @@
 
 FPGA的信号处理流程如下
 
-![Signal Processing Process in FPAG](C:\Users\chang\OneDrive\Documents\ReadingNote\Fig\TYZ106-FPGA-SP.bmp)
+![Signal Processing Process in FPAG](.\Fig\TYZ106-FPGA-SP.bmp)
 
 #  关于企业的思考
 
