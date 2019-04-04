@@ -346,6 +346,7 @@ static double gdSysTime = 0.0;  // 系统时间
 
 当程序调用DLL时，在数据监视窗口无法观察到数据的真实值，此时必须将数据输出到Output输出框：
 
+
 ```
 #include <windows.h>
 CString str;
@@ -391,8 +392,54 @@ qFatal( "C Style Fatal Error Message" );
 
 
 
-## 利用按钮调出新对话框
+### 利用按钮调出新对话框
 
 1. 建立UI：在项目中右键选择添加QT Designer Form Class，创建相应的界面和类，比如 CDlg；
 2. 设计完成界面；
-3. 在按钮响应函数中添加：`DrawWave drawWaveDlg;drawWaveDlg.exec();`
+3. 在按钮响应函数中添加：`DrawWave drawWaveDlg;drawWaveDlg.exec();
+
+
+## Zynq 7000资料学习笔记
+
+### I.  Overview
+
+Xilinx Zynq-7000系列由单个芯片集成了一个单/双核ARM处理器（PS单元），一个可编程逻辑芯片（PL单元），PS单元还包括了片上内存、外部内存接口以及丰富的外设I/O接口。Xilinx及第三方公司提供了大量的软件IP模块，用于PS/PL单元的独立（或Linux系统的）外设驱动；集成软件开发环境等。
+
+PS单元总是会先于PL单元启动，因此可以通过软件对启动中的PL进行集中配置，或者在启动后某个时间点进行配置甚至是随意重新配置。这种灵活的配置使得PL单元可以灵活地加载/卸载软件模块。PL的配置数据一律被视作比特流。
+
+#### 1.1 模块构成
+
+- Processing System (PS)
+   - [ ] Application processor unit (APU)
+   - [ ] Memory interfaces
+   - [ ] I/O peripherals (IOP)
+   - [ ] Interconnect
+- Programmable Logic (PL)，包括多种不同类型资源
+   - [ ] configurable logic blocks (CLBs)
+   - [ ] port and width configurable block RAM (BRAM)
+   - [ ] DSP slices with a 25 x 18 multiplier
+   - [ ] 48-bit accumulator and pre-adder (DSP48E1)
+   - [ ] a user configurable analog to digital convertor (XADC)
+   - [ ] clock management tiles (CMT)
+   - [ ] a configuration block with 256b AES for decryption and SHA for authentication
+   - [ ] configurable SelectIO™ technology and optionally GTP or GTX multi-gigabit transceivers
+   - [ ] an integrated PCI Express® (PCIe) block
+
+从模块构成图可以看出，PS和PL的交互是通过Programmable Logic to Memory Interconnect 这个“中间商”完成的，而非两者直接进行通信。
+
+#### 1.2 启动过程
+
+启动系统是一个多级(multi-stage)/极简(minimally)系统，包括了启动ROM(boot ROM)和FSBL(the first-stage boot loader). Zynq-7000 SoC 包括了一个厂家定制的boot ROM，用户无法操作该ROM。启动时，该ROM决定过程是否加密，完成系统的初始化和清空工作，读取模式管脚以确定主启动设备，ROM启动完成后会执行FSBL。
+
+重置系统后，系统会自动地初始化，并从选定的外部启动设备中执行FSBL。这一启动过程允许用户对包括PS/PL在内的片上系统进行配置。此外，还有JTAG接口，允许用户工程师通过测试模式对PS/PL进行操作。
+
+在对Zynq-7000 SoC各方面进行描述是，会站在PS角度进行。例如，通常从属接口(slave interface），指的是从PS看属于从属接口，在PL角度看就是主接口（master interface)。
+
+### II. Processing System （PS） 属性及特点
+
+#### 1.2 Application Processor Unit（APU）应用处理单元
+
+### XXX. 疑问？？？
+
+1. 工作流程是ARM直接读取9361的数据，然后发送给FPGA处理？还是FPGA直接读取9361信息，处理之后再给ARM？
+
