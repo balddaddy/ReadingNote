@@ -435,11 +435,14 @@ PS单元总是会先于PL单元启动，因此可以通过软件对启动中的P
 
 在对Zynq-7000 SoC各方面进行描述是，会站在PS角度进行。例如，通常从属接口(slave interface），指的是从PS看属于从属接口，在PL角度看就是主接口（master interface)。
 
-### II. Processing System （PS） 属性及特点
+### II. Interconnect Features and Description
 
-#### 1.2 Application Processor Unit（APU）应用处理单元
+#### 2.1 PS-PL Interfaces
+
+PL-PS间接口有两种，一种对应PL、一种对应PS：
+1. 函数式接口（Functional interfaces），包括AXI interconnect, extended MIO interfaces (EMIO) for most of the I/O peripherals, interrupts, DMA flow control, clocks, and debug interfaces. These signals are available for connecting with user-designed IP blocks in the PL.
+2. 配置信号（Configuration signals），包括了the processor configuration access port (PCAP), configuration status, single event upset (SEU) and Program/Done/Init. These signals are connected to fixed logic within the PL configuration block, providing PS control.
 
 ### XXX. 疑问？？？
 
 1. 工作流程是ARM直接读取9361的数据，然后发送给FPGA处理？还是FPGA直接读取9361信息，处理之后再给ARM？
-
