@@ -1,6 +1,63 @@
-#  关于算法的思考
+# 关于头歌平台
 
-## FPGA算法
+## 在线硬件实验平台
+
+### Target：
+
+建立软硬结合的实训平台，覆盖电子工程类课程。当前需要建设还没有建设的课程列表如下：
+
+1. 电路原理（模拟电路/数字电路）
+2. 信号与系统/随机信号处理
+3. 电磁场与微波/射频电路
+4. 嵌入式/单片机/DSP/FPGA
+5. 雷达原理/通信原理
+6. 自动控制
+7. 微电子/数字集成电路/半导体
+8. 电子线路实验/电子产品设计/电子制作
+9. 传感器/物联网
+
+实现基于头歌平台的硬件共享实验以及实验结果的实时评测。
+
+### 单片机
+
+https://lcgamboa.github.io/，PICSimLab
+
+PICSimLab is a realtime emulator of [development boards](https://lcgamboa.github.io/picsimlab_docs/stable/Boards.html) with integrated MPLABX/avr-gdb debugger. PICSimLab supports some [picsim](https://github.com/lcgamboa/picsim) microcontrollers and some [simavr](https://github.com/buserror/simavr) microcontrollers. PICSimLab have integration with MPLABX/Arduino IDE for programming the boards microcontrollers. As the purpose of PICSimLab is to emulate real hardware it does not have any source code editing support. For code editing and debugging the same tools used for a real board should be used with PICSimLab, such as MPLABX or Arduino IDE.
+
+PICSimLab supports several devices (spare parts) that can be connected to the boards for simulation. As for example LEDs and push buttons for simple outputs and inputs and some more complex ones like the ethernet shield w5500 for internet connection or the color graphic display ili9340 with touchscreen. The the complete list of parts can be accessed in the [documentation](https://lcgamboa.github.io/picsimlab_docs/stable/SpareParts.html).
+
+The [experimental version boards](https://lcgamboa.github.io/picsimlab_docs/stable/ExperimentalBoards.html) supports [uCsim](http://mazsola.iit.uni-miskolc.hu/~drdani/embedded/ucsim/), [gpsim](http://gpsim.sourceforge.net/) and [qemu-stm32](http://beckus.github.io/qemu_stm32/) simulators in addition to the stable ones.
+
+### DSP
+
+
+
+### FPGA
+
+Icarus Verilog是一个轻量、免费、开源的Verilog编译器，基于C++实现，开发者是 Stephen Williams ，遵循 **GNU GPL license** 许可证，安装文件中已经包含 GTKWave支持Verilog/VHDL文件的编译和仿真，命令行操作方式，类似gcc编译器，通过testbench文件可以生成对应的仿真波形数据文件，通过自带的GTKWave可以查看仿真波形图，支持将Verilog转换为VHDL文件。
+
+### 物联网
+
+
+### 电子对抗
+电子对抗实验箱
+
+### EDA
+
+**KiCad** is an open source software suite for Electronic Design Automation (EDA). The programs handle Schematic Capture, and PCB Layout with Gerber output. The suite runs on Windows, Linux and macOS and is licensed under GNU GPL v3.
+
+#  关于系统的思考
+
+### 探测设备
+
+#### 硬件方面
+
+1. 要向引导光电测向误差要小于2°，只有比相法才能达到，比幅法最多只有5°；
+2. 声表滤波器SAWF，具有体积小，重量轻、性能可靠、不需要复杂调整。声表面波滤波器的特点是：（1）频率响应平坦，不平坦度仅为±0.3-±0.5dB，群时延±30-±50ns。（2）SAWF矩形系数好，带外抑制可达40dB以上。（3）插入损耗虽高达25-30dB，但可以用放大器补偿电平损失。
+3. LC滤波器应用的频率范围为1kHz～1.5GHz.由于受限于其中电感的Q值，频率响应的截至区不够陡峭。A> RC滤波器相对于LC滤波器来说，更容易小型化或者集成，LC相对体积就大多了; B> RC滤波器有耗损，LC滤波器理论上可以无耗损; C> RC比LC的体积要小,成本要底; D> RC用在低频电路中,LC滤波一般用在高频电路中; E> RC滤波中的电阻要消耗一部分直流电压,R不能取得很大,用在电流小要求不高的电路中.RC体积小,成本低.滤波效果不如LC电路; LC滤波主要是电感的电阻小,直流损耗小.对交流电的感抗大,滤波效果好.缺点是体积大,笨重.成本高.用在要求高的电源电路中. F> 滤波级数越多效果也好，但是带来的是损耗和成本越高，所以不建议超过3级; G> RC滤波器一般常与运算放大器组合使用，构成有源滤波器，多作为低频信号的滤波。例如，在锁相环路中作为环路滤波器使用。
+4. SAWF不能做比相；LC滤波器可以做比相；
+
+#### FPGA算法
 
 FPGA的信号处理流程如下
 
@@ -17,14 +74,7 @@ FPGA的信号处理流程如下
 
 ### 软件方面:
 
-1. 构建一套时差定位的系统，从需求分析到架构设计（陈林旗）；
-2. 8K数据一开就会丢失数据，如果将来用6通道版本，数据量会更大，则丢失数据会更严重，目前可以通过减小通道数来解决，但是会增大处理周期；
 
-#### QT程序的疑问
-
-1. InitPhattom3/InitPhattom4Pro/InitMavic三个函数已经设定好三种机型的本振频率，那配置文件的频率还起不起作用？
-2. 既然华诺103和TYZ-106已经做成了两个不同分支的版本，那这两个版本还有必要添加HUANO/UDP_SOCK_9361这种判断么？
-3.
 
 
 ## 财务方面
@@ -81,14 +131,36 @@ FPGA的信号处理流程如下
 
 ## TO-DO & Q
 ### TO-DO
-1. 针对不同频率方向图补偿值有差异的问题，对于不同频段设置3~4个不同频点的方向图补偿值，增加补偿的精度；
-2. 针对报警不连续的问题，做角度外推；
-7. spark/小米/Marvic Pro 2.0的飞机识别；
 
+0.0 修改WiFi的六探针测向算法；
+0.1 和罗江商量一下出差行李箱的设计问题：电源线+网线+UPS电源+个人物品；
+0.2 和罗江商量108的结构加固问题，特别是天线的加固，要能够摔倒地上还保持没问题；
+0.2.1 和罗江商量，在设备底部留一个凹槽，用来贴上产品的品牌、型号、编号、IP、MAC、功耗、厂家、生产日期、Made in China、网口标识及带宽需求、电源口标识及电压电流需求；
+0.2.2 抗冲击能力和实验、抗雷击静电能力和实验、IP级别实验、外壳抗刮擦、设备美观度；
+0.3 侦测干扰联动，实现灵巧干扰、精准干扰；
+0.4 吴锦超讲解107的ARM程序编译问题；
+0.5 8k频谱的WiFi识别问题；
+0.6 安排文果计划物品的摆放和规划，并开一个安全知识讲座，包括下班后的断水断电问题、消防问题、UPS电源的放置问题等；
+0.7 将基于8K的4K、3SE、Spark识别功能添加在新版本软件当中；
+0.8 检查RMS的数据库记录软件；
+
+1.0 107-9361相关事项
+1.1 需要配置那些参数项？
+2.2 具体的配置代码是怎样的？
+3.3 这种配置和操作系统、硬件接口是否有关系？
+
+1. 做一个统一的接口API并测试；
+2. 108G设备出来以后调试新版V2.0程序（12路WiFi、6路非WiFi）；
+3. 将现在的V1.1软件修改为适配8k同步版本，开放小米4k、3SE、spark的识别功能（频谱+时域）；
+4. 针对P4PV2.0 在5.8G出现两个目标的问题，设计融合算法并实现和测试；
+5. 写三个专利；
+6. Zynq-107需要提出AXI总线、DDR3、Flash、AD9361、软件更新等等流程；
+7. 要不要买一些市面上常见的杂牌飞控做识别实验（2.4/5.8/915）；
+8. 203 升级固件，解决WiFi模块问题
 
 
 ### Q&A
-1. 写一个800~900M天线的需求文档，跟肖科讨论一下
+1. 关于WiFi识别问题：A. WiFi信号的信道是有规定的，也就是说他们的中心频点和带宽是严格限制的，据此首先可以判断一个信号是否为可疑的WiFi信号； B. 基于信号是否可疑对其进行模板匹配（卷积？相关？波形特征参数）；C.匹配之后如果确认是WiFi信号，则可以标记出该中心频点，之后本中心频点的信号都直接忽略，相当于做了无限高的门限。
 
 
 # ==美丽的分割线==
@@ -382,3 +454,17 @@ cookie把钥匙取了下来。
 我说“起床气是没有科学道理的，人早晨起来应该是心情最平静的时候，你是被心理暗示了。如果婆婆和爸爸的行为不变，你要怎么做就能避免今天的事情发生呢？”
 宝宝说“我现在想不出来，我下午再告诉你吧”
 我说：“好，咱们晚上再讨论吧”
+
+# <span style='color:RED'>2021.10.25  周一 晴天</span>
+
+昨天晚上因为疫情忽然严重，北京排查所有进京人员，我因为从长沙黄花机场坐飞机，而机场所在的黄花镇出现了确诊，因此北京疾控中心给我打电话，并逐级打到社区和我所在的酒店，酒店告诉我需要在房间里隔离14天并且配合核酸检测，但同时暗示我可以赶紧退房走人，于是我果断说我要退房，之后社区也感觉松了口气，说上报我已经离京。就这样我随便合了个稿子（JK信息化建设项目的建设方案）就急匆匆走了。
+
+今天没敢去公司，在家里隔离。在家隔离的效率确实不高，本来打算学点硬件知识的。但是没有坚持好，大部分时间都看抖音和Youtube了。中间遇到云南大学虚拟仿真项目的事情，约定了晚上一起视频会议。这中间我发现一个问题，就是课程销售、运营对接老师过程中获得的信息是无法传导到课程研发端的，课程研发端也无法积极主动的、全面的了解项目背景和项目需求，最终影响项目的研发进度和交付进度。针对这一情况我咨询了周老师、银凤、中洋和俊达，综合大家意见，我想到的解决思路如下：
+
+1. 在销售/运营和课程研发之间建立共享文档，文档以表格的形式写明项目名称、联系老师、联系方式、项目背景、项目需求、交付期限、技术参数等信息；文档通过语雀平台共享给课题组，课题组在确认收到文档后48小时内需要就文档内容不完善、模糊、错误的地方提出自己的问题，并完成与甲方沟通从运营转到研发的工作，超过48小时后的沟通问题由课题组负责，技术背景介绍等也均由课题组负责；
+2. 课程研发组接收项目资料48小时内指定项目负责人，从接收项目资料48小时后到项目交付，全流程由项目负责人负责跟踪、推进和协调，项目可以采用项目经理+技术总工双负责人形式，项目经理负责沟通协调，总工负责实际研发工作；项目要建立立项、计划书、节点评审、出厂测试、QA跟踪，每个阶段都要有负责人跟踪，并要有文档记录；出厂后有一个交付文档，对项目成果进行总结，对可以推广的亮点进行概括，并反馈给运营组，运营组同样有48小时接手时间，对推广所需信息（包括公众号、网站banner等各种形式）进行咨询。
+3. 对于技术支持，建立FQA信息wiki页面，对问题进行分类，包括了平台操作、UI界面、课程内容、未解决等多个板块，并做到日更，新人必须学会产品建课流程+wiki搜索使用后才能上岗；有没有可能课题组、研发组每月轮岗做技术支持协助+培训；
+4. 如果任何一方超过48小时无法完全接手，要扣掉小组绩效；如果应该进入wiki的FQA没有更新，或者进入wiki的问题仍多次询问，被投诉后扣小组绩效；
+5. 运营要建立客户档案，按照院校、专业、个人进行建档，对老师关心问题进行对话流程记录，对是否建课进行跟踪，对建课/不建课原因进行分析，对老师沟通流程进行总结优化，每个月对客户各项指标进行统计分析，包括客户来源（会议、公众号、熟人推荐、搜索）、最关心问题指标、使用感受或者意见建议等，给出统计报表；
+
+云大会议记录：1. 给出美工、游戏设计的建议；2. 尽快上网
